@@ -15,7 +15,8 @@ import subprocess
 import sys
 
 def extract_rar(file_path):
-  command = f"unrar x -o+ '{file_path}'"
+  directory = os.path.dirname(file_path)
+  command = f"unrar x -o+ '{file_path}' '{directory}'"
   subprocess.run(command, shell=True)
 
 def process_directory(directory):
